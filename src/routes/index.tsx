@@ -31,7 +31,7 @@ function Home() {
           aria-hidden
         />
         <div className="pointer-events-none absolute left-1/2 top-0 -z-0 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[oklch(0.92_0.12_60/0.35)] blur-3xl" aria-hidden />
-        <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-20 sm:px-6 sm:pb-24 sm:pt-28">
+        <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-20 sm:px-6 sm:pb-24 sm:pt-28">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-foreground shadow-sm">
               <span className="relative flex h-2 w-2">
@@ -255,7 +255,7 @@ function Home() {
       </Section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
+      <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6">
         <div className="relative overflow-hidden rounded-[2.5rem] border border-border bg-surface-muted p-10 text-center sm:p-16">
           <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[oklch(0.85_0.15_50/0.35)] blur-3xl" aria-hidden />
           <div className="pointer-events-none absolute -left-20 bottom-0 h-60 w-60 rounded-full bg-[oklch(0.85_0.13_290/0.3)] blur-3xl" aria-hidden />

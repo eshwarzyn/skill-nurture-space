@@ -31,7 +31,7 @@ function PathsPage() {
         title="Pick a path. Finish it."
         description="Each path is a guided sequence of lessons designed to take you from where you are to a real, demonstrable skill."
       />
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {paths.map((p) => (
             <Link

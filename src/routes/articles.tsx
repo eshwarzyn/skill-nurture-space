@@ -25,7 +25,7 @@ function ArticlesPage() {
         title="Writing from working PMs."
         description="Practical essays you can read in a coffee break, written by people shipping product today."
       />
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
         {/* Featured */}
         <article className="overflow-hidden rounded-3xl border border-border bg-surface">
           <div className="grid gap-6 p-6 md:grid-cols-5 md:p-10">
