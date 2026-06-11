@@ -33,7 +33,7 @@ function ResourcesPage() {
         title="The toolkit, free."
         description="Templates and frameworks that working PMs actually use — open them up, copy, adapt."
       />
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {resources.map((r) => {
             const Icon = icons[r.type];

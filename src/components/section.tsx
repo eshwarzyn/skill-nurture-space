@@ -17,7 +17,7 @@ export function Section({
   id?: string;
 }) {
   return (
-    <section id={id} className={cn("mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20", className)}>
+    <section id={id} className={cn("mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20", className)}>
       <div className="mb-10 max-w-2xl">
         {eyebrow && (
           <div className="mb-3 inline-flex items-center rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted-foreground">
@@ -45,7 +45,7 @@ export function PageHeader({
 }) {
   return (
     <div className="border-b border-border bg-surface-muted">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20">
         {eyebrow && (
           <div className="mb-3 inline-flex items-center rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted-foreground">
             {eyebrow}

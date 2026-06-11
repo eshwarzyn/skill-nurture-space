@@ -31,7 +31,69 @@ function Home() {
           aria-hidden
         />
         <div className="pointer-events-none absolute left-1/2 top-0 -z-0 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-[oklch(0.92_0.12_60/0.35)] blur-3xl" aria-hidden />
-        <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-20 sm:px-6 sm:pb-24 sm:pt-28">
+
+        {/* Floating side widgets — desktop only */}
+        <div className="pointer-events-none absolute left-6 top-32 z-10 hidden xl:block">
+          <div className="pointer-events-auto w-60 rotate-[-4deg] rounded-2xl border border-border bg-surface/90 p-4 shadow-[var(--shadow-card)] backdrop-blur transition-transform hover:rotate-0">
+            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-brand">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
+              </span>
+              Live now
+            </div>
+            <div className="mt-2 font-display text-2xl font-bold">1,284</div>
+            <div className="text-xs text-muted-foreground">PMs learning today</div>
+            <div className="mt-3 flex -space-x-2">
+              {["oklch(0.78 0.17 45)", "oklch(0.78 0.14 320)", "oklch(0.82 0.13 210)", "oklch(0.85 0.15 75)"].map((c, i) => (
+                <span key={i} className="h-7 w-7 rounded-full border-2 border-surface" style={{ background: c }} />
+              ))}
+              <span className="grid h-7 w-7 place-items-center rounded-full border-2 border-surface bg-foreground text-[10px] font-bold text-background">+9</span>
+            </div>
+          </div>
+          <div className="pointer-events-auto mt-8 ml-4 w-56 rotate-[3deg] rounded-2xl border border-[oklch(0.92_0.08_60)] bg-[oklch(0.98_0.03_60)] p-4 shadow-[var(--shadow-card)] transition-transform hover:rotate-0">
+            <div className="text-[10px] font-bold uppercase tracking-widest text-brand">Trending path</div>
+            <div className="mt-1.5 font-display text-base font-bold">AI Product Management</div>
+            <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-[oklch(0.93_0.05_60)]">
+              <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-[oklch(0.72_0.19_40)] to-[oklch(0.65_0.18_320)]" />
+            </div>
+            <div className="mt-2 flex justify-between text-[10px] font-semibold text-muted-foreground">
+              <span>9 / 12 lessons</span><span>75%</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="pointer-events-none absolute right-6 top-40 z-10 hidden xl:block">
+          <div className="pointer-events-auto w-64 rotate-[4deg] rounded-2xl border border-border bg-surface/90 p-4 shadow-[var(--shadow-card)] backdrop-blur transition-transform hover:rotate-0">
+            <div className="flex items-center justify-between">
+              <div className="text-[10px] font-bold uppercase tracking-widest text-[oklch(0.55_0.18_290)]">This week</div>
+              <span className="rounded-full bg-[oklch(0.95_0.05_290)] px-2 py-0.5 text-[10px] font-bold text-[oklch(0.55_0.18_290)]">New</span>
+            </div>
+            <div className="mt-2 font-display text-base font-bold leading-snug">Writing a PRD that ships</div>
+            <div className="mt-3 flex items-end gap-1">
+              {[40, 60, 35, 80, 55, 90, 70].map((h, i) => (
+                <div key={i} className="w-3 rounded-sm bg-gradient-to-t from-[oklch(0.85_0.13_290)] to-[oklch(0.72_0.19_40)]" style={{ height: `${h * 0.5}px` }} />
+              ))}
+            </div>
+            <div className="mt-2 text-[10px] font-semibold text-muted-foreground">+38% reads vs last week</div>
+          </div>
+          <div className="pointer-events-auto mt-8 mr-4 w-52 rotate-[-3deg] rounded-2xl bg-[oklch(0.2_0.04_270)] p-4 text-white shadow-[var(--shadow-card)] transition-transform hover:rotate-0">
+            <div className="flex items-center gap-2">
+              <span className="grid h-8 w-8 place-items-center rounded-lg bg-[oklch(0.72_0.19_40)] text-base">🔥</span>
+              <div>
+                <div className="font-display text-lg font-bold leading-none">7-day</div>
+                <div className="text-[10px] uppercase tracking-widest text-white/60">streak</div>
+              </div>
+            </div>
+            <div className="mt-3 grid grid-cols-7 gap-1">
+              {Array.from({ length: 7 }).map((_, i) => (
+                <span key={i} className="h-5 rounded-sm" style={{ background: i < 6 ? "oklch(0.78 0.17 45)" : "oklch(1 0 0 / 0.1)" }} />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-20 sm:px-6 sm:pb-24 sm:pt-28">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-foreground shadow-sm">
               <span className="relative flex h-2 w-2">
@@ -255,7 +317,7 @@ function Home() {
       </Section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
+      <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6">
         <div className="relative overflow-hidden rounded-[2.5rem] border border-border bg-surface-muted p-10 text-center sm:p-16">
           <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[oklch(0.85_0.15_50/0.35)] blur-3xl" aria-hidden />
           <div className="pointer-events-none absolute -left-20 bottom-0 h-60 w-60 rounded-full bg-[oklch(0.85_0.13_290/0.3)] blur-3xl" aria-hidden />
