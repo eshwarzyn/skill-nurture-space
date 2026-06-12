@@ -4,7 +4,7 @@ import { courses } from "@/lib/content";
 import { PageHeader } from "@/components/section";
 import { Search } from "lucide-react";
 
-export const Route = createFileRoute("/courses")({
+export const Route = createFileRoute("/courses/")({
   head: () => ({
     meta: [
       { title: "Courses — ProductPath" },
