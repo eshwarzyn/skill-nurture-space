@@ -75,15 +75,20 @@ function CoursesPage() {
 
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((c) => (
-            <article key={c.slug} className="rounded-2xl border border-border bg-surface p-6 transition-shadow hover:shadow-[var(--shadow-card)]">
+            <Link
+              key={c.slug}
+              to="/courses/$slug"
+              params={{ slug: c.slug }}
+              className="group block rounded-2xl border border-border bg-surface p-6 transition-shadow hover:shadow-[var(--shadow-card)]"
+            >
               <div className="flex items-center justify-between text-xs text-muted-foreground">
                 <span>{c.category}</span>
                 <span>{c.duration}</span>
               </div>
-              <h3 className="mt-3 font-display text-lg font-semibold">{c.title}</h3>
+              <h3 className="mt-3 font-display text-lg font-semibold group-hover:text-brand">{c.title}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{c.description}</p>
               <div className="mt-4 text-xs font-medium text-brand">{c.level}</div>
-            </article>
+            </Link>
           ))}
           {filtered.length === 0 && (
             <div className="col-span-full rounded-2xl border border-dashed border-border p-10 text-center text-sm text-muted-foreground">
