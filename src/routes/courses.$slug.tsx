@@ -104,7 +104,7 @@ const outcomes = [
 ];
 
 function CourseDetail() {
-  const { course } = Route.useLoaderData();
+  const { course } = Route.useLoaderData() as { course: (typeof courses)[number] };
   const related = courses.filter((c) => c.slug !== course.slug && c.category === course.category).slice(0, 3);
   const fallback = courses.filter((c) => c.slug !== course.slug).slice(0, 3);
   const recs = related.length ? related : fallback;
