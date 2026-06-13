@@ -19,7 +19,7 @@ export function ContentDetail({
   description: string;
   meta: string;
   children: ReactNode;
-  aside: ReactNode;
+  aside?: ReactNode;
 }) {
   return (
     <div>
@@ -38,9 +38,9 @@ export function ContentDetail({
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-12 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1fr)_320px]">
+      <section className={`mx-auto grid max-w-7xl gap-12 px-4 py-14 sm:px-6 sm:py-20 ${aside ? "lg:grid-cols-[minmax(0,1fr)_320px]" : "lg:max-w-5xl"}`}>
         <div className="min-w-0 space-y-12">{children}</div>
-        <aside className="lg:sticky lg:top-24 lg:self-start">{aside}</aside>
+        {aside && <aside className="lg:sticky lg:top-24 lg:self-start">{aside}</aside>}
       </section>
     </div>
   );
