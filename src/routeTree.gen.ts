@@ -20,7 +20,10 @@ import { Route as ResourcesIndexRouteImport } from './routes/resources.index'
 import { Route as PathsIndexRouteImport } from './routes/paths.index'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as ArticlesIndexRouteImport } from './routes/articles.index'
+import { Route as ResourcesRiceCalculatorRouteImport } from './routes/resources.rice-calculator'
+import { Route as PathsFoundationsRouteImport } from './routes/paths.foundations'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
+import { Route as ArticlesOpportunityTreesRouteImport } from './routes/articles.opportunity-trees'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -77,11 +80,27 @@ const ArticlesIndexRoute = ArticlesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ArticlesRoute,
 } as any)
+const ResourcesRiceCalculatorRoute = ResourcesRiceCalculatorRouteImport.update({
+  id: '/rice-calculator',
+  path: '/rice-calculator',
+  getParentRoute: () => ResourcesRoute,
+} as any)
+const PathsFoundationsRoute = PathsFoundationsRouteImport.update({
+  id: '/foundations',
+  path: '/foundations',
+  getParentRoute: () => PathsRoute,
+} as any)
 const CoursesSlugRoute = CoursesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => CoursesRoute,
 } as any)
+const ArticlesOpportunityTreesRoute =
+  ArticlesOpportunityTreesRouteImport.update({
+    id: '/opportunity-trees',
+    path: '/opportunity-trees',
+    getParentRoute: () => ArticlesRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -91,7 +110,10 @@ export interface FileRoutesByFullPath {
   '/paths': typeof PathsRouteWithChildren
   '/resources': typeof ResourcesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/articles/opportunity-trees': typeof ArticlesOpportunityTreesRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/paths/foundations': typeof PathsFoundationsRoute
+  '/resources/rice-calculator': typeof ResourcesRiceCalculatorRoute
   '/articles/': typeof ArticlesIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/paths/': typeof PathsIndexRoute
@@ -101,7 +123,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/articles/opportunity-trees': typeof ArticlesOpportunityTreesRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/paths/foundations': typeof PathsFoundationsRoute
+  '/resources/rice-calculator': typeof ResourcesRiceCalculatorRoute
   '/articles': typeof ArticlesIndexRoute
   '/courses': typeof CoursesIndexRoute
   '/paths': typeof PathsIndexRoute
@@ -116,7 +141,10 @@ export interface FileRoutesById {
   '/paths': typeof PathsRouteWithChildren
   '/resources': typeof ResourcesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/articles/opportunity-trees': typeof ArticlesOpportunityTreesRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/paths/foundations': typeof PathsFoundationsRoute
+  '/resources/rice-calculator': typeof ResourcesRiceCalculatorRoute
   '/articles/': typeof ArticlesIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/paths/': typeof PathsIndexRoute
@@ -132,7 +160,10 @@ export interface FileRouteTypes {
     | '/paths'
     | '/resources'
     | '/sitemap.xml'
+    | '/articles/opportunity-trees'
     | '/courses/$slug'
+    | '/paths/foundations'
+    | '/resources/rice-calculator'
     | '/articles/'
     | '/courses/'
     | '/paths/'
@@ -142,7 +173,10 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/sitemap.xml'
+    | '/articles/opportunity-trees'
     | '/courses/$slug'
+    | '/paths/foundations'
+    | '/resources/rice-calculator'
     | '/articles'
     | '/courses'
     | '/paths'
@@ -156,7 +190,10 @@ export interface FileRouteTypes {
     | '/paths'
     | '/resources'
     | '/sitemap.xml'
+    | '/articles/opportunity-trees'
     | '/courses/$slug'
+    | '/paths/foundations'
+    | '/resources/rice-calculator'
     | '/articles/'
     | '/courses/'
     | '/paths/'
@@ -252,6 +289,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArticlesIndexRouteImport
       parentRoute: typeof ArticlesRoute
     }
+    '/resources/rice-calculator': {
+      id: '/resources/rice-calculator'
+      path: '/rice-calculator'
+      fullPath: '/resources/rice-calculator'
+      preLoaderRoute: typeof ResourcesRiceCalculatorRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
+    '/paths/foundations': {
+      id: '/paths/foundations'
+      path: '/foundations'
+      fullPath: '/paths/foundations'
+      preLoaderRoute: typeof PathsFoundationsRouteImport
+      parentRoute: typeof PathsRoute
+    }
     '/courses/$slug': {
       id: '/courses/$slug'
       path: '/$slug'
@@ -259,14 +310,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoursesSlugRouteImport
       parentRoute: typeof CoursesRoute
     }
+    '/articles/opportunity-trees': {
+      id: '/articles/opportunity-trees'
+      path: '/opportunity-trees'
+      fullPath: '/articles/opportunity-trees'
+      preLoaderRoute: typeof ArticlesOpportunityTreesRouteImport
+      parentRoute: typeof ArticlesRoute
+    }
   }
 }
 
 interface ArticlesRouteChildren {
+  ArticlesOpportunityTreesRoute: typeof ArticlesOpportunityTreesRoute
   ArticlesIndexRoute: typeof ArticlesIndexRoute
 }
 
 const ArticlesRouteChildren: ArticlesRouteChildren = {
+  ArticlesOpportunityTreesRoute: ArticlesOpportunityTreesRoute,
   ArticlesIndexRoute: ArticlesIndexRoute,
 }
 
@@ -288,20 +348,24 @@ const CoursesRouteWithChildren =
   CoursesRoute._addFileChildren(CoursesRouteChildren)
 
 interface PathsRouteChildren {
+  PathsFoundationsRoute: typeof PathsFoundationsRoute
   PathsIndexRoute: typeof PathsIndexRoute
 }
 
 const PathsRouteChildren: PathsRouteChildren = {
+  PathsFoundationsRoute: PathsFoundationsRoute,
   PathsIndexRoute: PathsIndexRoute,
 }
 
 const PathsRouteWithChildren = PathsRoute._addFileChildren(PathsRouteChildren)
 
 interface ResourcesRouteChildren {
+  ResourcesRiceCalculatorRoute: typeof ResourcesRiceCalculatorRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
 const ResourcesRouteChildren: ResourcesRouteChildren = {
+  ResourcesRiceCalculatorRoute: ResourcesRiceCalculatorRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
 }
 
@@ -321,3 +385,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
