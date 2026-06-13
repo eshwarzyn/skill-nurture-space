@@ -36,7 +36,7 @@ function PathsPage() {
           {paths.map((p) => (
             <Link
               key={p.slug}
-              to="/paths"
+              to={p.slug === "foundations" ? "/paths/foundations" : "/paths"}
               className="group rounded-2xl border border-border bg-surface p-6 transition-shadow hover:shadow-[var(--shadow-card)]"
             >
               <div className="flex items-center justify-between">

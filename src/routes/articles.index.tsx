@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { articles } from "@/lib/content";
 import { PageHeader } from "@/components/section";
 
@@ -50,8 +50,9 @@ function ArticlesPage() {
         {/* Grid */}
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {rest.map((a) => (
-            <article
+            <Link
               key={a.slug}
+              to={a.slug === "opportunity-trees" ? "/articles/opportunity-trees" : "/articles"}
               className="rounded-2xl border border-border bg-surface p-6 transition-shadow hover:shadow-[var(--shadow-card)]"
             >
               <div className="text-xs font-medium text-brand">{a.category}</div>
@@ -60,7 +61,7 @@ function ArticlesPage() {
               <div className="mt-4 text-xs text-muted-foreground">
                 {a.author} · {a.readTime} read
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

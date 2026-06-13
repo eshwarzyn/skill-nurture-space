@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { resources } from "@/lib/content";
 import { PageHeader } from "@/components/section";
 import { BookMarked, CheckSquare, FileText, Hammer, LayoutTemplate } from "lucide-react";
@@ -38,9 +38,9 @@ function ResourcesPage() {
           {resources.map((r) => {
             const Icon = icons[r.type];
             return (
-              <a
+              <Link
                 key={r.title}
-                href={r.href}
+                to={r.title === "RICE Calculator" ? "/resources/rice-calculator" : "/resources"}
                 className="group rounded-2xl border border-border bg-surface p-6 transition-shadow hover:shadow-[var(--shadow-card)]"
               >
                 <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
@@ -49,7 +49,7 @@ function ResourcesPage() {
                 <h3 className="mt-3 font-display text-lg font-semibold">{r.title}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{r.description}</p>
                 <div className="mt-4 text-sm font-medium">Open →</div>
-              </a>
+              </Link>
             );
           })}
         </div>
