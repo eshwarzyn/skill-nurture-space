@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { articles } from "@/lib/content";
 import { PageHeader } from "@/components/section";
 
-export const Route = createFileRoute("/articles")({
+export const Route = createFileRoute("/articles/")({
   head: () => ({
     meta: [
       { title: "Articles — ProductPath" },

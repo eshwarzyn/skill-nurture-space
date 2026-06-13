@@ -3,7 +3,7 @@ import { paths } from "@/lib/content";
 import { PageHeader } from "@/components/section";
 import { ArrowRight, Clock, Layers } from "lucide-react";
 
-export const Route = createFileRoute("/paths")({
+export const Route = createFileRoute("/paths/")({
   head: () => ({
     meta: [
       { title: "Learning Paths — ProductPath" },
