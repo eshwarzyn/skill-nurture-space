@@ -21,8 +21,10 @@ import { Route as PathsIndexRouteImport } from './routes/paths.index'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as ArticlesIndexRouteImport } from './routes/articles.index'
 import { Route as ResourcesRiceCalculatorRouteImport } from './routes/resources.rice-calculator'
+import { Route as ResourcesProductKpisRouteImport } from './routes/resources.product-kpis'
 import { Route as PathsFoundationsRouteImport } from './routes/paths.foundations'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
+import { Route as CoursesProductKpisRouteImport } from './routes/courses.product-kpis'
 import { Route as ArticlesOpportunityTreesRouteImport } from './routes/articles.opportunity-trees'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -85,6 +87,16 @@ const ResourcesRiceCalculatorRoute = ResourcesRiceCalculatorRouteImport.update({
   path: '/rice-calculator',
   getParentRoute: () => ResourcesRoute,
 } as any)
+const ResourcesProductKpisRoute = ResourcesProductKpisRouteImport.update({
+  id: '/product-kpis',
+  path: '/product-kpis',
+  getParentRoute: () => ResourcesRoute,
+} as any)
+const CoursesProductKpisRoute = CoursesProductKpisRouteImport.update({
+  id: '/product-kpis',
+  path: '/product-kpis',
+  getParentRoute: () => CoursesRoute,
+} as any)
 const PathsFoundationsRoute = PathsFoundationsRouteImport.update({
   id: '/foundations',
   path: '/foundations',
@@ -112,8 +124,10 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/articles/opportunity-trees': typeof ArticlesOpportunityTreesRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/courses/product-kpis': typeof CoursesProductKpisRoute
   '/paths/foundations': typeof PathsFoundationsRoute
   '/resources/rice-calculator': typeof ResourcesRiceCalculatorRoute
+  '/resources/product-kpis': typeof ResourcesProductKpisRoute
   '/articles/': typeof ArticlesIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/paths/': typeof PathsIndexRoute
@@ -125,8 +139,10 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/articles/opportunity-trees': typeof ArticlesOpportunityTreesRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/courses/product-kpis': typeof CoursesProductKpisRoute
   '/paths/foundations': typeof PathsFoundationsRoute
   '/resources/rice-calculator': typeof ResourcesRiceCalculatorRoute
+  '/resources/product-kpis': typeof ResourcesProductKpisRoute
   '/articles': typeof ArticlesIndexRoute
   '/courses': typeof CoursesIndexRoute
   '/paths': typeof PathsIndexRoute
@@ -143,8 +159,10 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/articles/opportunity-trees': typeof ArticlesOpportunityTreesRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/courses/product-kpis': typeof CoursesProductKpisRoute
   '/paths/foundations': typeof PathsFoundationsRoute
   '/resources/rice-calculator': typeof ResourcesRiceCalculatorRoute
+  '/resources/product-kpis': typeof ResourcesProductKpisRoute
   '/articles/': typeof ArticlesIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/paths/': typeof PathsIndexRoute
@@ -162,8 +180,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/articles/opportunity-trees'
     | '/courses/$slug'
+    | '/courses/product-kpis'
     | '/paths/foundations'
     | '/resources/rice-calculator'
+    | '/resources/product-kpis'
     | '/articles/'
     | '/courses/'
     | '/paths/'
@@ -175,8 +195,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/articles/opportunity-trees'
     | '/courses/$slug'
+    | '/courses/product-kpis'
     | '/paths/foundations'
     | '/resources/rice-calculator'
+    | '/resources/product-kpis'
     | '/articles'
     | '/courses'
     | '/paths'
@@ -192,8 +214,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/articles/opportunity-trees'
     | '/courses/$slug'
+    | '/courses/product-kpis'
     | '/paths/foundations'
     | '/resources/rice-calculator'
+    | '/resources/product-kpis'
     | '/articles/'
     | '/courses/'
     | '/paths/'
@@ -296,6 +320,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesRiceCalculatorRouteImport
       parentRoute: typeof ResourcesRoute
     }
+    '/resources/product-kpis': {
+      id: '/resources/product-kpis'
+      path: '/product-kpis'
+      fullPath: '/resources/product-kpis'
+      preLoaderRoute: typeof ResourcesProductKpisRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/paths/foundations': {
       id: '/paths/foundations'
       path: '/foundations'
@@ -308,6 +339,13 @@ declare module '@tanstack/react-router' {
       path: '/$slug'
       fullPath: '/courses/$slug'
       preLoaderRoute: typeof CoursesSlugRouteImport
+      parentRoute: typeof CoursesRoute
+    }
+    '/courses/product-kpis': {
+      id: '/courses/product-kpis'
+      path: '/product-kpis'
+      fullPath: '/courses/product-kpis'
+      preLoaderRoute: typeof CoursesProductKpisRouteImport
       parentRoute: typeof CoursesRoute
     }
     '/articles/opportunity-trees': {
@@ -336,11 +374,13 @@ const ArticlesRouteWithChildren = ArticlesRoute._addFileChildren(
 
 interface CoursesRouteChildren {
   CoursesSlugRoute: typeof CoursesSlugRoute
+  CoursesProductKpisRoute: typeof CoursesProductKpisRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
 }
 
 const CoursesRouteChildren: CoursesRouteChildren = {
   CoursesSlugRoute: CoursesSlugRoute,
+  CoursesProductKpisRoute: CoursesProductKpisRoute,
   CoursesIndexRoute: CoursesIndexRoute,
 }
 
@@ -361,11 +401,13 @@ const PathsRouteWithChildren = PathsRoute._addFileChildren(PathsRouteChildren)
 
 interface ResourcesRouteChildren {
   ResourcesRiceCalculatorRoute: typeof ResourcesRiceCalculatorRoute
+  ResourcesProductKpisRoute: typeof ResourcesProductKpisRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
 const ResourcesRouteChildren: ResourcesRouteChildren = {
   ResourcesRiceCalculatorRoute: ResourcesRiceCalculatorRoute,
+  ResourcesProductKpisRoute: ResourcesProductKpisRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
 }
 

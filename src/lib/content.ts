@@ -102,6 +102,7 @@ export const courses: Course[] = [
   { slug: "prioritization", title: "Prioritization frameworks", description: "RICE, ICE, Kano — when to use what.", level: "Beginner", duration: "55m", category: "Craft" },
   { slug: "ai-evals", title: "Designing AI evals", description: "Measure quality of LLM features.", level: "Advanced", duration: "1h 50m", category: "AI" },
   { slug: "pricing", title: "Pricing & packaging", description: "Tiering, value metrics, and willingness to pay.", level: "Advanced", duration: "2h 15m", category: "Growth" },
+  { slug: "product-kpis", title: "Product KPIs", description: "DAU, MAU, retention, conversion and churn — measure and act on what matters.", level: "Intermediate", duration: "2h 30m", category: "Analytics" },
 ];
 
 export const articles: Article[] = [
