@@ -77,8 +77,8 @@ function CoursesPage() {
           {filtered.map((c) => (
             <Link
               key={c.slug}
-              to="/courses/$slug"
-              params={{ slug: c.slug }}
+              to={c.slug === "writing-prds" ? "/courses/writing-prds" : c.slug === "product-kpis" ? "/courses/product-kpis" : "/courses/$slug"}
+              params={c.slug !== "writing-prds" && c.slug !== "product-kpis" ? { slug: c.slug } : undefined}
               className="group block rounded-2xl border border-border bg-surface p-6 transition-shadow hover:shadow-[var(--shadow-card)]"
             >
               <div className="flex items-center justify-between text-xs text-muted-foreground">

@@ -22,9 +22,11 @@ import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as ArticlesIndexRouteImport } from './routes/articles.index'
 import { Route as ResourcesRiceCalculatorRouteImport } from './routes/resources.rice-calculator'
 import { Route as ResourcesProductKpisRouteImport } from './routes/resources.product-kpis'
+import { Route as ResourcesWritingPrdsRouteImport } from './routes/resources.writing-prds'
 import { Route as PathsFoundationsRouteImport } from './routes/paths.foundations'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 import { Route as CoursesProductKpisRouteImport } from './routes/courses.product-kpis'
+import { Route as CoursesWritingPrdsRouteImport } from './routes/courses.writing-prds'
 import { Route as ArticlesOpportunityTreesRouteImport } from './routes/articles.opportunity-trees'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -97,6 +99,16 @@ const CoursesProductKpisRoute = CoursesProductKpisRouteImport.update({
   path: '/product-kpis',
   getParentRoute: () => CoursesRoute,
 } as any)
+const CoursesWritingPrdsRoute = CoursesWritingPrdsRouteImport.update({
+  id: '/writing-prds',
+  path: '/writing-prds',
+  getParentRoute: () => CoursesRoute,
+} as any)
+const ResourcesWritingPrdsRoute = ResourcesWritingPrdsRouteImport.update({
+  id: '/writing-prds',
+  path: '/writing-prds',
+  getParentRoute: () => ResourcesRoute,
+} as any)
 const PathsFoundationsRoute = PathsFoundationsRouteImport.update({
   id: '/foundations',
   path: '/foundations',
@@ -125,9 +137,11 @@ export interface FileRoutesByFullPath {
   '/articles/opportunity-trees': typeof ArticlesOpportunityTreesRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/courses/product-kpis': typeof CoursesProductKpisRoute
+  '/courses/writing-prds': typeof CoursesWritingPrdsRoute
   '/paths/foundations': typeof PathsFoundationsRoute
   '/resources/rice-calculator': typeof ResourcesRiceCalculatorRoute
   '/resources/product-kpis': typeof ResourcesProductKpisRoute
+  '/resources/writing-prds': typeof ResourcesWritingPrdsRoute
   '/articles/': typeof ArticlesIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/paths/': typeof PathsIndexRoute
@@ -140,9 +154,11 @@ export interface FileRoutesByTo {
   '/articles/opportunity-trees': typeof ArticlesOpportunityTreesRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/courses/product-kpis': typeof CoursesProductKpisRoute
+  '/courses/writing-prds': typeof CoursesWritingPrdsRoute
   '/paths/foundations': typeof PathsFoundationsRoute
   '/resources/rice-calculator': typeof ResourcesRiceCalculatorRoute
   '/resources/product-kpis': typeof ResourcesProductKpisRoute
+  '/resources/writing-prds': typeof ResourcesWritingPrdsRoute
   '/articles': typeof ArticlesIndexRoute
   '/courses': typeof CoursesIndexRoute
   '/paths': typeof PathsIndexRoute
@@ -160,9 +176,11 @@ export interface FileRoutesById {
   '/articles/opportunity-trees': typeof ArticlesOpportunityTreesRoute
   '/courses/$slug': typeof CoursesSlugRoute
   '/courses/product-kpis': typeof CoursesProductKpisRoute
+  '/courses/writing-prds': typeof CoursesWritingPrdsRoute
   '/paths/foundations': typeof PathsFoundationsRoute
   '/resources/rice-calculator': typeof ResourcesRiceCalculatorRoute
   '/resources/product-kpis': typeof ResourcesProductKpisRoute
+  '/resources/writing-prds': typeof ResourcesWritingPrdsRoute
   '/articles/': typeof ArticlesIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/paths/': typeof PathsIndexRoute
@@ -327,6 +345,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesProductKpisRouteImport
       parentRoute: typeof ResourcesRoute
     }
+    '/resources/writing-prds': {
+      id: '/resources/writing-prds'
+      path: '/writing-prds'
+      fullPath: '/resources/writing-prds'
+      preLoaderRoute: typeof ResourcesWritingPrdsRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/paths/foundations': {
       id: '/paths/foundations'
       path: '/foundations'
@@ -346,6 +371,13 @@ declare module '@tanstack/react-router' {
       path: '/product-kpis'
       fullPath: '/courses/product-kpis'
       preLoaderRoute: typeof CoursesProductKpisRouteImport
+      parentRoute: typeof CoursesRoute
+    }
+    '/courses/writing-prds': {
+      id: '/courses/writing-prds'
+      path: '/writing-prds'
+      fullPath: '/courses/writing-prds'
+      preLoaderRoute: typeof CoursesWritingPrdsRouteImport
       parentRoute: typeof CoursesRoute
     }
     '/articles/opportunity-trees': {
@@ -375,12 +407,14 @@ const ArticlesRouteWithChildren = ArticlesRoute._addFileChildren(
 interface CoursesRouteChildren {
   CoursesSlugRoute: typeof CoursesSlugRoute
   CoursesProductKpisRoute: typeof CoursesProductKpisRoute
+  CoursesWritingPrdsRoute: typeof CoursesWritingPrdsRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
 }
 
 const CoursesRouteChildren: CoursesRouteChildren = {
   CoursesSlugRoute: CoursesSlugRoute,
   CoursesProductKpisRoute: CoursesProductKpisRoute,
+  CoursesWritingPrdsRoute: CoursesWritingPrdsRoute,
   CoursesIndexRoute: CoursesIndexRoute,
 }
 
@@ -402,12 +436,14 @@ const PathsRouteWithChildren = PathsRoute._addFileChildren(PathsRouteChildren)
 interface ResourcesRouteChildren {
   ResourcesRiceCalculatorRoute: typeof ResourcesRiceCalculatorRoute
   ResourcesProductKpisRoute: typeof ResourcesProductKpisRoute
+  ResourcesWritingPrdsRoute: typeof ResourcesWritingPrdsRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
 const ResourcesRouteChildren: ResourcesRouteChildren = {
   ResourcesRiceCalculatorRoute: ResourcesRiceCalculatorRoute,
   ResourcesProductKpisRoute: ResourcesProductKpisRoute,
+  ResourcesWritingPrdsRoute: ResourcesWritingPrdsRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
 }
 

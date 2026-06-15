@@ -37,10 +37,11 @@ function ResourcesPage() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {resources.map((r) => {
             const Icon = icons[r.type];
+            const dedicatedHref = r.href && r.href !== "#" ? r.href : null;
             return (
               <Link
                 key={r.title}
-                to={r.title === "RICE Calculator" ? "/resources/rice-calculator" : "/resources"}
+                to={(dedicatedHref ?? "/resources") as "/resources"}
                 className="group rounded-2xl border border-border bg-surface p-6 transition-shadow hover:shadow-[var(--shadow-card)]"
               >
                 <div className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
