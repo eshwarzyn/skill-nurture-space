@@ -23,6 +23,7 @@ import { Route as ArticlesIndexRouteImport } from './routes/articles.index'
 import { Route as ResourcesRiceCalculatorRouteImport } from './routes/resources.rice-calculator'
 import { Route as ResourcesProductKpisRouteImport } from './routes/resources.product-kpis'
 import { Route as ResourcesWritingPrdsRouteImport } from './routes/resources.writing-prds'
+import { Route as ResourcesRetailPmL2InterviewGuideRouteImport } from './routes/resources.retail-pm-l2-interview-guide'
 import { Route as PathsFoundationsRouteImport } from './routes/paths.foundations'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 import { Route as CoursesProductKpisRouteImport } from './routes/courses.product-kpis'
@@ -109,6 +110,12 @@ const ResourcesWritingPrdsRoute = ResourcesWritingPrdsRouteImport.update({
   path: '/writing-prds',
   getParentRoute: () => ResourcesRoute,
 } as any)
+const ResourcesRetailPmL2InterviewGuideRoute =
+  ResourcesRetailPmL2InterviewGuideRouteImport.update({
+    id: '/retail-pm-l2-interview-guide',
+    path: '/retail-pm-l2-interview-guide',
+    getParentRoute: () => ResourcesRoute,
+  } as any)
 const PathsFoundationsRoute = PathsFoundationsRouteImport.update({
   id: '/foundations',
   path: '/foundations',
@@ -142,6 +149,7 @@ export interface FileRoutesByFullPath {
   '/resources/rice-calculator': typeof ResourcesRiceCalculatorRoute
   '/resources/product-kpis': typeof ResourcesProductKpisRoute
   '/resources/writing-prds': typeof ResourcesWritingPrdsRoute
+  '/resources/retail-pm-l2-interview-guide': typeof ResourcesRetailPmL2InterviewGuideRoute
   '/articles/': typeof ArticlesIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/paths/': typeof PathsIndexRoute
@@ -159,6 +167,7 @@ export interface FileRoutesByTo {
   '/resources/rice-calculator': typeof ResourcesRiceCalculatorRoute
   '/resources/product-kpis': typeof ResourcesProductKpisRoute
   '/resources/writing-prds': typeof ResourcesWritingPrdsRoute
+  '/resources/retail-pm-l2-interview-guide': typeof ResourcesRetailPmL2InterviewGuideRoute
   '/articles': typeof ArticlesIndexRoute
   '/courses': typeof CoursesIndexRoute
   '/paths': typeof PathsIndexRoute
@@ -181,6 +190,7 @@ export interface FileRoutesById {
   '/resources/rice-calculator': typeof ResourcesRiceCalculatorRoute
   '/resources/product-kpis': typeof ResourcesProductKpisRoute
   '/resources/writing-prds': typeof ResourcesWritingPrdsRoute
+  '/resources/retail-pm-l2-interview-guide': typeof ResourcesRetailPmL2InterviewGuideRoute
   '/articles/': typeof ArticlesIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/paths/': typeof PathsIndexRoute
@@ -202,6 +212,7 @@ export interface FileRouteTypes {
     | '/paths/foundations'
     | '/resources/rice-calculator'
     | '/resources/product-kpis'
+    | '/resources/retail-pm-l2-interview-guide'
     | '/articles/'
     | '/courses/'
     | '/paths/'
@@ -217,6 +228,7 @@ export interface FileRouteTypes {
     | '/paths/foundations'
     | '/resources/rice-calculator'
     | '/resources/product-kpis'
+    | '/resources/retail-pm-l2-interview-guide'
     | '/articles'
     | '/courses'
     | '/paths'
@@ -236,6 +248,7 @@ export interface FileRouteTypes {
     | '/paths/foundations'
     | '/resources/rice-calculator'
     | '/resources/product-kpis'
+    | '/resources/retail-pm-l2-interview-guide'
     | '/articles/'
     | '/courses/'
     | '/paths/'
@@ -352,6 +365,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResourcesWritingPrdsRouteImport
       parentRoute: typeof ResourcesRoute
     }
+    '/resources/retail-pm-l2-interview-guide': {
+      id: '/resources/retail-pm-l2-interview-guide'
+      path: '/retail-pm-l2-interview-guide'
+      fullPath: '/resources/retail-pm-l2-interview-guide'
+      preLoaderRoute: typeof ResourcesRetailPmL2InterviewGuideRouteImport
+      parentRoute: typeof ResourcesRoute
+    }
     '/paths/foundations': {
       id: '/paths/foundations'
       path: '/foundations'
@@ -437,6 +457,7 @@ interface ResourcesRouteChildren {
   ResourcesRiceCalculatorRoute: typeof ResourcesRiceCalculatorRoute
   ResourcesProductKpisRoute: typeof ResourcesProductKpisRoute
   ResourcesWritingPrdsRoute: typeof ResourcesWritingPrdsRoute
+  ResourcesRetailPmL2InterviewGuideRoute: typeof ResourcesRetailPmL2InterviewGuideRoute
   ResourcesIndexRoute: typeof ResourcesIndexRoute
 }
 
@@ -444,6 +465,7 @@ const ResourcesRouteChildren: ResourcesRouteChildren = {
   ResourcesRiceCalculatorRoute: ResourcesRiceCalculatorRoute,
   ResourcesProductKpisRoute: ResourcesProductKpisRoute,
   ResourcesWritingPrdsRoute: ResourcesWritingPrdsRoute,
+  ResourcesRetailPmL2InterviewGuideRoute: ResourcesRetailPmL2InterviewGuideRoute,
   ResourcesIndexRoute: ResourcesIndexRoute,
 }
 

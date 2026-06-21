@@ -120,6 +120,7 @@ export const resources: Resource[] = [
   { title: "RICE Calculator", description: "Score and rank initiatives quickly.", type: "Tool", href: "/resources/rice-calculator" },
   { title: "PRD Writing Toolkit", description: "Templates, examples, sample PRDs, checklist, anatomy, and case studies.", type: "Tool", href: "/resources/writing-prds" },
   { title: "Product KPI Tools", description: "Five interactive calculators, benchmarks, formula sheet, and diagnostics.", type: "Tool", href: "/resources/product-kpis" },
+  { title: "PM L2 (Retail Store Tech) Interview Guide", description: "Domain deep-dives (POS, SCO, Inventory, Loyalty, BOPIS, SFS, OMS), PM craft, Agile delivery, stakeholders, and KPIs.", type: "Tool", href: "/resources/retail-pm-l2-interview-guide" },
   { title: "Opportunity Solution Tree", description: "Teresa Torres' canvas, ready to fill in.", type: "Framework", href: "#" },
   { title: "Launch Readiness Checklist", description: "Don't ship without this.", type: "Checklist", href: "#" },
   { title: "Inspired — Marty Cagan", description: "The classic on building products customers love.", type: "Book", href: "#" },
